@@ -1,12 +1,10 @@
 const fs = require('fs');
-const { exec } = require('child_process');
 
 module.exports = {
     /**
      * Returns a list of all files
      */
     getAll: async path => {
-
         let list = []
         await fs.readdir(path, (err, files) => {
             if (err) console.log(err);
