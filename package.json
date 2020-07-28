@@ -1,0 +1,23 @@
+{
+  "name": "cdn",
+  "version": "1.0.0",
+  "description": "A simple file sharing thingy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nierot/cdn.git"
+  },
+  "author": "Nierot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nierot/cdn/issues"
+  },
+  "homepage": "https://github.com/Nierot/cdn#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
