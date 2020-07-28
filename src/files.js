@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
+    
     /**
      * Returns a list of all files
      */

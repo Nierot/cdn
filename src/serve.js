@@ -6,7 +6,7 @@ module.exports = {
     /**
      * Sends the requested file to the client
      */
-    serveFile: (req, res, path) => {
+    serveFile: (res, path) => {
         fs.readFile(path, (err, data) => {
             if (err) {
                 res.send('');
