@@ -10,7 +10,7 @@ app.get('/-/*', (req, res) => {
 
 // If all else fails
 app.get('/*', (req, res) => {
-    res.send(req.url);
+    res.send('fails');
 })
 
 
