@@ -27,12 +27,6 @@ app.get(settings.endpoints.file_share + "*", async (req, res) => {
         )
 })
 
-app.get('/all', async (req, res) => {
-    let file = await files.getAll(settings.paths.file_share)
-    console.log(file)
-    res.send(file)
-})
-
 app.get('/*', (req, res) => {
     res.send('<h1>cdn</h1>');
 })
