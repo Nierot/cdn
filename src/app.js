@@ -28,7 +28,9 @@ app.get(settings.endpoints.file_share + "*", async (req, res) => {
 })
 
 app.get('/*', (req, res) => {
-    res.send('<h1>cdn</h1>');
+    res.sendFile('/static/index.html', {
+        root: '.'
+    });
 })
 
 app.listen(PORT, async () => {
