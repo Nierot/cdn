@@ -10,5 +10,5 @@ RUN npm install
 
 EXPOSE 8080
 
-CMD ["nodemon", "/usr/src/app/src/app.js"]
+#CMD ["nodemon", "/usr/src/app/src/app.js"]
 CMD ["node", "/usr/src/app/src/app.js"]

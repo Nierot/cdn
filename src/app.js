@@ -27,6 +27,10 @@ app.get(settings.endpoints.file_share + "*", async (req, res) => {
         )
 })
 
+app.get(settings.endpoints.memes + "*", (req, res) => {
+    serve.serveFile(res, `${settings.paths.memes}/${req.url.split('/')[2]}`)
+})
+
 app.get('/*', (req, res) => {
     res.sendFile('/static/index.html', {
         root: '.'
