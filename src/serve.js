@@ -12,10 +12,10 @@ module.exports = {
         fs.readFile(path, (err, data) => {
             if (err) {
                 console.error(err)
-                res.send('');
+                res.status(404).send('File not found');
             } else {
                 res.set('Content-Type', mime.lookup(path));
-                res.send(data);
+                res.status(200).send(data);
             }
         })
     },
