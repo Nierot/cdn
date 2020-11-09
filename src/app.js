@@ -1,10 +1,9 @@
 const app = require('express')();
 const settings = require('../settings.json');
-const files = require('./files');
-const serve = require('./serve');
 const dbHelper = require('./mongo');
-const e = require('express');
 const { serveFile, checkExpiration } = require('./serve');
+const cors = require('cors');
+const upload = require('./upload');
 
 const PORT = settings.port;
 var db = undefined;
@@ -21,15 +20,13 @@ app.get(settings.endpoints.file_share + "*", async (req, res) => {
 })
 
 app.get(settings.endpoints.standard + "*", (req, res) => serveFile(res, `${settings.paths.standard}/${req.url.split('/')[2]}`))
-
 app.get(settings.endpoints.media + "*", (req, res) => serveFile(res, `${settings.paths.media}/${req.url.split('/')[2]}`))
-
 app.get(settings.endpoints.memes + "*", (req, res) => serveFile(res, `${settings.paths.memes}/${req.url.split('/')[2]}`))
-
 app.get(settings.endpoints.music + "*", (req, res) => serveFile(res, `${settings.paths.music}/${req.url.split('/')[2]}`))
-
+app.post(settings.endpoints.music + "*", async (req, res) => await upload.upload(req, res));
 app.get('/*', (req, res) => res.sendFile('/static/index.html', { root: '.' }))
 
+app.use(cors());
 
 app.listen(PORT, async () => {
     let obj = await dbHelper.connect();

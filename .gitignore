@@ -117,3 +117,5 @@ dist
 
 *.db
 settings.json
+music
+temp

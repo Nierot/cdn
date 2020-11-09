@@ -2,6 +2,9 @@ FROM node:12
 
 WORKDIR /usr/src/app
 
+RUN mkdir /music
+RUN mkdir /usr/src/app/temp
+
 #COPY package*.json ./
 COPY . .
 
