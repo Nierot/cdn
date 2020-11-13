@@ -22,7 +22,7 @@ module.exports = {
                     message: 'not an mp3 file'
                 })
             } else {
-                const id = crypto.randomBytes(6).toString('base64').replace('/', '-');
+                const id = crypto.randomBytes(6).toString('base64').replace('/', '-').replace('+', '_');
                 mv(files.file.path, `${settings.paths.music}/${id}.mp3`, err => {
                     if (err) {
                         console.error(err)
